@@ -1,2 +1,4 @@
 # Microsoft-ADC-Boootcamp
-Repo containing all the problem solutions at the Bootcamp
+This repo contains solutions to the problem/challenge questions assigned on Data Structure and Algorithms throughout the bootcamp.
+
+
