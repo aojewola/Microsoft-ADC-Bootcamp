@@ -16,7 +16,7 @@ class Solution:
 # Naive Approach
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        # Using two pointer algorithms
+        # Using Naive approach
         for i in range(len(nums)-1):
             for j in range(i+1, len(nums)):
                 current_sum = nums[i] + nums[j]
