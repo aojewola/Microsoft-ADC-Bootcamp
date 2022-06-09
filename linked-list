@@ -1,0 +1,103 @@
+# LinkedList DS
+
+class Node():
+    def __init__(self, val=None):
+        self.val = val
+        self.next = None
+    
+class LinkedList:
+    def __init__(self):
+        self.head = Node()
+        
+    def append(self, val):
+        curr_node = Node(val)
+        curr = self.head
+        while curr.next != None:
+            curr = curr.next
+        curr.next = curr_node
+        return
+        
+    def length_node(self):
+        curr = self.head
+        count = 0
+        while curr.next != None:
+            count += 1
+            curr = curr.next
+        return count
+            
+    def print_linkedlist(self):
+        curr = self.head
+        arr = list()
+        while curr.next != None:
+            curr = curr.next
+            arr.append(curr.val)
+        return arr
+        
+    def get(self, index):
+        if int(index) >= self.length_node():
+            return "Index out of range"
+        counts = 0
+        curr = self.head
+        data = 0
+        while counts <= index:
+            curr = curr.next
+            data = curr.val
+            counts += 1
+        return data  
+        
+    def get1(self, index):
+        # Alternative method of getting an element at a particular index
+        if int(index) >= self.length_node():
+            return f"Index {index} out of range"
+        c = 0
+        curr = self.head
+        while True:
+            curr = curr.next
+            if c == index:
+                return curr.val
+            c += 1
+            
+    def erase(self, index):
+        if int(index) >= self.length_node():
+            return f"Index {index} out of range"
+        
+        c = 0
+        curr = self.head
+        while True:
+            last_node = curr
+            curr = curr.next
+            if index == c:
+                last_node.next = curr.next
+                return self.print_linkedlist()
+            c += 1
+            
+    def insert(self, index, val):
+        if int(index) >= self.length_node():
+            return f"Index {index} out of range"
+            
+        count = 0
+        curr = self.head
+        new_node = Node(val)
+        
+        while True:
+            las_node = curr
+            curr = curr.next
+            if index == count:
+                new_node.next = curr
+                las_node.next = new_node
+                return self.print_linkedlist()
+            count += 1
+        
+            
+        
+Link = LinkedList()
+Link.append(1)
+Link.append(8)
+Link.append(10)
+Link.append(12000)
+print(Link.print_linkedlist())
+print(Link.length_node())
+print(Link.get(3))
+print(Link.get1(3))
+print(Link.erase(2))
+print(Link.insert(2, 7))
